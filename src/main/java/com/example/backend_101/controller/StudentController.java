@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class StudentController {
 
-    @Autowired
+    @Autowired // dependency injection
     private StudentService studentService;
 
     @GetMapping(value = "hello-world")
@@ -29,4 +31,10 @@ public class StudentController {
     public Student addStudent(@RequestBody Student student) {
         return studentService.addStudent(student);
     }
+
+    @GetMapping(value = "student")
+    public List<Student> getAllStudent() {
+        return studentService.getAllStudent();
+    }
+    
 }
